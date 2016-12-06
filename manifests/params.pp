@@ -12,9 +12,6 @@ class helix::params {
 
   case $::osfamily {
     'redhat': {
-      if !($::operatingsystemmajrelease in ['6','7']) {
-        fail('Sorry, only releases 6 and 7 are currently suppported by the helix module')
-      }
       $perforce_repo_name = 'perforce'
       $yum_baseurl        = "${perforce_package_url}/yum/rhel/${::operatingsystemmajrelease}/x86_64"
       $p4dctl             = '/usr/sbin/p4dctl'
